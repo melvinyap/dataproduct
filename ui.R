@@ -48,8 +48,9 @@ shinyUI(fluidPage(
                         "Number of forward gears (gear)" = "gear"
                     )
                 )
-            )#,
-#             br(),
+            ),
+            br(),
+            p("Select the target, numeric/factor variables and watch the changes take place in the tabs on the right.")
 #             div(
 #                 radioButtons("confidence", "Confidence Level:", 
 #                              c("90%","95%","99%"), selected = "95%", inline=T)
@@ -62,11 +63,13 @@ shinyUI(fluidPage(
 
             tabsetPanel(type = "tabs", 
                 tabPanel("Residual Plot", 
-                         h3(textOutput("caption")),
+                         h3(textOutput("caption1")),
                          plotOutput("residualPlot")),
                 tabPanel("Summary", 
+                         h3(textOutput("caption2")),
                          verbatimTextOutput("summary")),
                 tabPanel("ANOVA", 
+                         h3(textOutput("caption3")),
                          verbatimTextOutput("anova"))
             )
             

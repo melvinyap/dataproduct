@@ -3,7 +3,8 @@ library(ggplot2)
 
 data(mtcars)
 
-#It is noted that the number of cylinders, automatic/manual transmission and 
+#It is noted that the number of cylinders, automatic/manual transmission,
+#v engine/straight engine and 
 #number of gears should be converted from numeric to factor variables for 
 #regression analysis.
 mtcars$cyl <- factor(mtcars$cyl)
@@ -25,10 +26,16 @@ shinyServer(function(input, output) {
     })
     
     # Return the formula text for printing as a caption
-    output$caption <- renderText({
+    output$caption1 <- renderText({
         formulaText()
     })
-
+    output$caption2 <- renderText({
+        formulaText()
+    })
+    output$caption3 <- renderText({
+        formulaText()
+    })
+    
     model <- reactive({
         lm(as.formula(formulaText()), mtcars)
     })
